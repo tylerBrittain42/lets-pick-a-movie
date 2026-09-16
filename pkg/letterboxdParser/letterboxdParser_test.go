@@ -31,8 +31,6 @@ func TestGetMovieList(t *testing.T) {
 
 // add get single movies and convert this and bove to table
 
-// helper files
-// []string len: 4, cap: 4, ["Date","Name","Year","Letterboxd URI"]
 func TestHasHeaders(t *testing.T) {
 	type testCase struct {
 		description     string
@@ -71,8 +69,13 @@ func TestIsValid(t *testing.T) {
 	}
 	tests := []testCase{
 		{
-			description:     "is not valid(incorrect num)",
+			description:     "is too short",
 			input:           []string{"Date", "Name", "Letterboxd URI"},
+			expectedOuttput: false,
+		},
+		{
+			description:     "Does not parse year",
+			input:           []string{"2025-02-09", "Wildflower", "2a22", "https://boxd.it/yt94"},
 			expectedOuttput: false,
 		},
 		{
@@ -86,7 +89,7 @@ func TestIsValid(t *testing.T) {
 		t.Run(tt.description, func(t *testing.T) {
 			actual := isValid(tt.input)
 			if actual != tt.expectedOuttput {
-				t.Errorf("%v marked %v", tt.input, actual)
+				t.Errorf("%v: %v marked %v", tt.description, tt.input, actual)
 			}
 		})
 	}
