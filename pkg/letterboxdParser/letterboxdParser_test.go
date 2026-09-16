@@ -84,7 +84,7 @@ func TestIsValid(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.description, func(t *testing.T) {
-			actual := isValid()
+			actual := isValid(tt.input)
 			if actual != tt.expectedOuttput {
 				t.Errorf("%v marked %v", tt.input, actual)
 			}
