@@ -43,4 +43,4 @@ that.
 - Go module: `github.com/tylerBrittain42/lets-pick-a-movie`
 - Go `1.27.1`
 - The idea: a tool to help pick a movie, starting with parsing a CSV of movies
-  (`pkg/csvParser`).
+  (`pkg/letterboxdParser`).
