@@ -36,11 +36,11 @@ You may **not**:
 
 If Tyler asks directly for the answer, offer a hint one level deeper first and
 check whether that's enough. Only give the full answer if he asks again after
-that.
+that. If Tyler says override, then give him the answer for that specific question
 
 ## Project facts
 
 - Go module: `github.com/tylerBrittain42/lets-pick-a-movie`
 - Go `1.27.1`
 - The idea: a tool to help pick a movie, starting with parsing a CSV of movies
-  (`pkg/csvParser`).
+  (`pkg/letterboxdParser`).
