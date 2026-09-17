@@ -58,7 +58,6 @@ func TestGetListFromCsv(t *testing.T) {
 		},
 
 		{
-			// should skip the bad entries not everthing
 			description:    "bad file(invalid)",
 			inputFile:      "invalid.csv",
 			expectedOutput: []movie{},
