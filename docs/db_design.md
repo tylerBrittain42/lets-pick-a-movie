@@ -59,3 +59,4 @@
 ## Other
 - docs page in bookmark folder
 - sqlitebrowser package installed
+- `goose create movies sql` create migration file(timestamped)
