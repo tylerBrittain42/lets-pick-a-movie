@@ -60,3 +60,6 @@
 - docs page in bookmark folder
 - sqlitebrowser package installed
 - `goose create movies sql` create migration file(timestamped)
+## assorted links
+- https://developer.themoviedb.org/reference/genre-movie-list    
+using tmdb
