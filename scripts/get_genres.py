@@ -24,9 +24,6 @@ def main():
         for genre in genres:
             f.write(genre.get("name") + "\n")
 
-    # todo: finish script to grab genres
-    # todo: write script to associate genres with movies
-    #
     return
 
 
