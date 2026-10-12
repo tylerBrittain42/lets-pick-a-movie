@@ -1,6 +1,6 @@
 
 #!/usr/bin/env bash
-# Usage: ./import_genres.sh <database.db> [csv_path]
+# Usage: ./insert_genres.sh <database.db> [csv_path]
 set -euo pipefail
  
 DB="${1:?Usage: $0 <database.db> [csv_path]}"
