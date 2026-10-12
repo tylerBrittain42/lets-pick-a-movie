@@ -31,3 +31,5 @@ go.work.sum
 # .idea/
 # .vscode/
 .vscode/launch.json
+database.db
+lets-pick-a-movie
