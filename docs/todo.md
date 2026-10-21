@@ -1,3 +1,5 @@
+# IMPORTANT
+Shifting to trello, may use smaller todo lists for each tasks, but will be form-fitted as needed
 # TODO
 - upload letterbox csv
 - user accounts
@@ -12,4 +14,10 @@
 - create scripts for loading sample data
     - no user lists
     - with user lists
+
+# Unsorted
+- determine api points
+- determine site pages
+- implement api 
+- implement site 
 

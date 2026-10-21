@@ -33,3 +33,4 @@ go.work.sum
 .vscode/launch.json
 database.db
 lets-pick-a-movie
+.vscode/settings.json
