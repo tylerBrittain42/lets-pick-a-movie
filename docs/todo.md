@@ -16,8 +16,8 @@ Shifting to trello, may use smaller todo lists for each tasks, but will be form-
     - with user lists
 
 # Unsorted
-- determine api points
+- determine api points PAUSE
 - determine site pages
-- implement api 
+- implement api PAUSE
 - implement site 
 
