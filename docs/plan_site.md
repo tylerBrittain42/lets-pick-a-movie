@@ -29,3 +29,4 @@ Spitting out thoughts before transforming into trello tasks
 - https://www.geeksforgeeks.org/blogs/spa-vs-mpa-which-one-is-better-for-you/
 - https://gomakethings.com/articles/an-alternative-to-single-page-apps-multi-page-apps-with-service-workers/ ?
 - this blog in general https://gomakethings.com/tools/
+- https://grafana.com/blog/how-i-write-http-services-in-go-after-13-years/
