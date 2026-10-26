@@ -3,7 +3,6 @@
   
 ## Unsorted
 ## WIP
-1. close gracefully
 ## High
 ## Mid
 1. Admin page(adjacent to auth)
@@ -15,6 +14,8 @@
 1. find overlapping movies service
 1. create movie input page
 1. search page
+1. close gracefully(https://victoriametrics.com/blog/go-graceful-shutdown/)
+    1. waiting until I have things to actually shutdown
 ## Low
 1. handle better logs(slog + write to file or something for when live)
 1. Auth stuff
