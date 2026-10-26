@@ -2,10 +2,15 @@
 ## Immediate notes
   
 ## Unsorted
+need to generate template
+1. create overall page
+1. create single template
+1. put together using templ
 ## WIP
-1. create movie page(not wire ability to add to list)
 1. view all movies
 ## High
+1. log all todos
+1. create movie page(not wire ability to add to list)
 ## Mid
 1. Admin page(adjacent to auth)
 1. crud(as needed)
@@ -19,6 +24,7 @@
     1. waiting until I have things to actually shutdown
 1. movie page(add to list)
 ## Low
+1. add multi-genre support
 1. handle better logs(slog + write to file or something for when live)
 1. Auth stuff
 1. reset password handler
