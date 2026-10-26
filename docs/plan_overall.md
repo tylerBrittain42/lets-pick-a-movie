@@ -3,9 +3,8 @@
   
 ## Unsorted
 ## WIP
-1. middleware for logging
-## High
 1. close gracefully
+## High
 ## Mid
 1. Admin page(adjacent to auth)
 1. crud(as needed)

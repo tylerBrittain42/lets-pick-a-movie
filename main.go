@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -39,8 +40,9 @@ func main() {
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 90 * time.Second,
 		IdleTimeout:  120 * time.Second,
-		Handler:      mux,
+		Handler:      middlewareLogReq(mux),
 	}
+
 	log.Printf("Serving on port %s\n", port)
 	log.Fatal(server.ListenAndServe())
 }
@@ -57,4 +59,13 @@ func handleUploadCsv(w http.ResponseWriter, r *http.Request) {
 // will user query parameters
 func handleOverlap(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("overlap stub"))
+}
+
+func middlewareLogReq(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		reqInfo := (fmt.Sprintf("%s %s", r.Method, r.URL.RequestURI()))
+
+		fmt.Printf("Incoming: %s\n", reqInfo)
+		next.ServeHTTP(w, r)
+	})
 }
