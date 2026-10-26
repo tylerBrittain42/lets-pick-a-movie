@@ -10,6 +10,11 @@ import (
 	"github.com/joho/godotenv"
 )
 
+type statusRecorder struct {
+	http.ResponseWriter
+	status int
+}
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {
@@ -61,11 +66,16 @@ func handleOverlap(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("overlap stub"))
 }
 
+func (rec *statusRecorder) WriteHeader(code int) {
+	rec.status = code
+	rec.ResponseWriter.WriteHeader(code)
+}
+
 func middlewareLogReq(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		reqInfo := (fmt.Sprintf("%s %s", r.Method, r.URL.RequestURI()))
-
-		fmt.Printf("Incoming: %s\n", reqInfo)
-		next.ServeHTTP(w, r)
+		rec := statusRecorder{w, http.StatusOK}
+		next.ServeHTTP(&rec, r)
+		reqInfo := (fmt.Sprintf("%s %s status:%d", r.Method, r.URL.RequestURI(), rec.status))
+		fmt.Printf("Handled: %s\n", reqInfo)
 	})
 }
