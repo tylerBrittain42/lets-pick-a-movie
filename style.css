@@ -1,0 +1,36 @@
+body {
+  /* background-color: aqua; */
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+}
+
+.movie-poster{
+  width: 75%;
+}
+
+/* contrasting just to view blocks */
+#header {
+  background-color: green;
+}
+
+.movie-card {
+  background-color: blueviolet;
+  text-align: center;
+  border-radius: 10%;
+  border: 3px solid black;
+  margin: 1em;
+}
+
+.container {
+  background-color: antiquewhite;
+  margin: auto 10% auto 10%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  grid-template-rows: minmax(200px, 1fr);
+}
