@@ -1,13 +1,15 @@
 body {
-  /* background-color: aqua; */
+  background-color: antiquewhite;
 }
 
 .title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
+    font-size: 1rem;
+    min-height: 2lh;
 }
 
 .movie-poster{
@@ -22,15 +24,13 @@ body {
 .movie-card {
   background-color: blueviolet;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 12px;
   border: 3px solid black;
-  margin: 1em;
 }
 
 .container {
-  background-color: antiquewhite;
   margin: auto 10% auto 10%;
   display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
-  grid-template-rows: minmax(200px, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1em;
 }
