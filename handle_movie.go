@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/tylerBrittain42/lets-pick-a-movie/internal/pageTemplate"
 )
 
 func (app *application) handleSingleMovie(w http.ResponseWriter, r *http.Request) {
@@ -20,5 +22,8 @@ func (app *application) handleAllMovies(w http.ResponseWriter, r *http.Request) 
 		return
 
 	}
-	w.Write([]byte(fmt.Sprintf("%v", movies)))
+
+	_ = movies
+	_ = pageTemplate.Page(movies[:10]).Render(r.Context(), w)
+	// w.Write([]byte(fmt.Sprintf("%v", movies)))
 }

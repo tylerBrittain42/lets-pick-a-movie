@@ -1,0 +1,37 @@
+package pageTemplate
+
+import "github.com/tylerBrittain42/lets-pick-a-movie/internal/database"
+
+templ Page(movies []database.GetMoviesRow) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Movies</title>
+			<link rel="stylesheet" href="/static/style.css"/>
+		</head>
+		<body>
+			<!-- todo: header -->
+			<div id="header">home, profile, setting, logout</div>
+			<h1>View All Movies</h1>
+			<p>this is a spot for things to go</p>
+			<div class="container">
+				for _, item := range movies {
+					@movieCard(item.Name, item.Year)
+				}
+				// @movieCard()
+			</div>
+		</body>
+	</html>
+}
+
+templ movieCard(name string, year int64) {
+	<div class="movie-card">
+		<a href="http://google.com" class="card-link">
+			<h2 class="title">{ name }</h2>
+			<img src="/static/sample_movie_poster.jpg" alt="movie poster" class="movie-poster"/>
+			<h3 class="year">{ year }</h3>
+		</a>
+	</div>
+}

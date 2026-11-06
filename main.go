@@ -51,6 +51,7 @@ func main() {
 	movies.HandleFunc("GET /{$}", app.handleAllMovies)
 
 	mux := http.NewServeMux()
+	mux.Handle("GET /static/", http.StripPrefix("/static", http.FileServer(http.Dir("static"))))
 	mux.HandleFunc("GET /uploadCsv", handleUploadCsv)
 	mux.HandleFunc("GET /{$}", handleHome)
 
