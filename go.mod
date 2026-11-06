@@ -3,6 +3,11 @@ module github.com/tylerBrittain42/lets-pick-a-movie
 go 1.27.1
 
 require (
+	github.com/joho/godotenv v1.5.1
+	modernc.org/sqlite v1.61.0
+)
+
+require (
 	github.com/a-h/parse v0.0.0-20250122154542-74294addb73e // indirect
 	github.com/a-h/templ v0.3.1100 // indirect
 	github.com/andybalholm/brotli v1.2.7 // indirect
@@ -12,7 +17,6 @@ require (
 	github.com/fatih/color v1.19.0 // indirect
 	github.com/fsnotify/fsnotify v1.10.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
@@ -26,7 +30,6 @@ require (
 	modernc.org/libc v1.79.0 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.12.1 // indirect
-	modernc.org/sqlite v1.61.0 // indirect
 )
 
 tool github.com/a-h/templ/cmd/templ
