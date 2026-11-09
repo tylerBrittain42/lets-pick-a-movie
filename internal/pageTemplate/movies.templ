@@ -17,24 +17,16 @@ templ PageMovies(movies []database.GetMoviesRow) {
 		</head>
 		<body>
 			<!-- todo: header -->
-			<div id="header">home, profile, setting, logout</div>
+			@header()
 			<h1>View All Movies</h1>
 			<p>this is a spot for things to go</p>
 			<div class="container">
 				for _, item := range movies {
-					@movieCard(item.Name, item.Year)
+					<a href={ fmt.Sprintf("/movies/%s", url.PathEscape(item.Name)) } class="card-link">
+						@movieCard(item.Name, item.Year)
+					</a>
 				}
 			</div>
 		</body>
 	</html>
-}
-
-templ movieCard(name string, year int64) {
-	<div class="movie-card">
-		<a href={ fmt.Sprintf("/movies/%s", url.PathEscape(name)) } class="card-link">
-			<h2 class="title">{ name }</h2>
-			<img src="/static/sample_movie_poster.jpg" alt="movie poster" class="movie-poster"/>
-			<h3 class="year">{ year }</h3>
-		</a>
-	</div>
 }
