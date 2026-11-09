@@ -34,3 +34,4 @@ go.work.sum
 database.db
 lets-pick-a-movie
 .vscode/settings.json
+SQLite.session.sql

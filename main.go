@@ -1,13 +1,17 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"time"
 
+	_ "modernc.org/sqlite"
+
 	"github.com/joho/godotenv"
+	"github.com/tylerBrittain42/lets-pick-a-movie/internal/database"
 )
 
 type statusRecorder struct {
@@ -21,7 +25,20 @@ func main() {
 		log.Fatalf("Error loading .env file: %v", err.Error())
 	}
 
+	//todo: add something to handle unset env
+	// todo: add local mem fallback
+	// todo: add these to plan
 	port := os.Getenv("PORT")
+	dbUrl := os.Getenv("DATABASE_URL")
+	platform := os.Getenv("PLATFORM")
+
+	fmt.Print(dbUrl)
+	db, err := sql.Open("sqlite", dbUrl)
+	if err != nil {
+		log.Fatalf("Cannot access sqlite %v\n", err)
+	}
+	dbQueries := database.New(db)
+	app := application{queries: dbQueries, platform: platform}
 
 	users := http.NewServeMux()
 	users.HandleFunc("GET /login", handleLogin)
@@ -30,10 +47,11 @@ func main() {
 	users.HandleFunc("GET /compare", handleOverlap)
 
 	movies := http.NewServeMux()
-	movies.HandleFunc("GET /{movieName}", handleSingleMovie)
-	movies.HandleFunc("GET /{$}", handleAllMovies)
+	movies.HandleFunc("GET /{movieName}", app.handleSingleMovie)
+	movies.HandleFunc("GET /{$}", app.handleAllMovies)
 
 	mux := http.NewServeMux()
+	mux.Handle("GET /static/", http.StripPrefix("/static", http.FileServer(http.Dir("static"))))
 	mux.HandleFunc("GET /uploadCsv", handleUploadCsv)
 	mux.HandleFunc("GET /{$}", handleHome)
 
@@ -78,4 +96,9 @@ func middlewareLogReq(next http.Handler) http.Handler {
 		reqInfo := (fmt.Sprintf("%s %s status:%d", r.Method, r.URL.RequestURI(), rec.status))
 		fmt.Printf("Handled: %s\n", reqInfo)
 	})
+}
+
+type application struct {
+	queries  *database.Queries
+	platform string
 }

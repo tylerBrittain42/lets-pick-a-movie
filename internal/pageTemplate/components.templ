@@ -1,0 +1,14 @@
+package pageTemplate
+
+
+templ movieCard(name string, year int64) {
+		<div class="movie-card">
+			<h2 class="title">{ name }</h2>
+			<img src="/static/sample_movie_poster.jpg" alt="movie poster" class="movie-poster"/>
+			<h3 class="year">{ year }</h3>
+		</div>
+}
+
+templ header() {
+	<div id="header">home, profile, setting, logout</div>
+}

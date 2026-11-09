@@ -1,0 +1,32 @@
+package pageTemplate
+
+import (
+	"fmt"
+	"github.com/tylerBrittain42/lets-pick-a-movie/internal/database"
+	"net/url"
+)
+
+templ PageMovies(movies []database.GetMoviesRow) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Movies</title>
+			<link rel="stylesheet" href="/static/style.css"/>
+		</head>
+		<body>
+			<!-- todo: header -->
+			@header()
+			<h1>View All Movies</h1>
+			<p>this is a spot for things to go</p>
+			<div class="container">
+				for _, item := range movies {
+					<a href={ fmt.Sprintf("/movies/%s", url.PathEscape(item.Name)) } class="card-link">
+						@movieCard(item.Name, item.Year)
+					</a>
+				}
+			</div>
+		</body>
+	</html>
+}
