@@ -1,12 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>register stub</h1>
-    
-</body>
+    <form action="/users/register" method="post">
+      <label for="user">Username:</label><br />
+      <input type="text" id="user" name="user" value="" /><br />
+      <label for="password">Password:<label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value=""
+      /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
 </html>
