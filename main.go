@@ -42,7 +42,8 @@ func main() {
 
 	users := http.NewServeMux()
 	users.HandleFunc("GET /login", handleLogin)
-	users.HandleFunc("GET /register", handleRegisterUser)
+	users.HandleFunc("GET /register", handleGetRegisterUser)
+	users.HandleFunc("POST /register", handlePostRegisterUser)
 	users.HandleFunc("GET /{userName}", handleUserProfile)
 	users.HandleFunc("GET /compare", handleOverlap)
 
